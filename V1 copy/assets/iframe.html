@@ -29,9 +29,48 @@
     // Initialise the Zendesk JavaScript API client
     // https://developer.zendesk.com/apps/docs/apps-v2
     var client = ZAFClient.init();
-    client.invoke('resize', { width: '100%', height: '200px' });
+ 
+//use the V2 client API to get ticket requester user ID
+    client.get('ticket.requester').then(function(data) {
+        var id = data['ticket.requester']['id'];
+        var name = data['ticket.requester']['name'];
+        addName(name);
+        userRequest(id);
 
+    });
 
+//handle the user name from the client.get to user object
+    function addName(name) {
+        document.getElementById('name').innerHTML = name;
+    };
+
+//client.request to users API for created, updated, and sign in dates
+
+    function userRequest(id) {
+
+        var getUser = {
+            url: '/api/v2/users/' + id + '.json',
+            type: 'GET',
+            dataType: 'json'
+        };
+//make the API request and handle the dates using native JavaScript 
+        client.request(getUser).then(function(data) {
+            var cdate = new Date(data.user.created_at).toDateString();
+            var ldate = new Date(data.user.updated_at).toDateString();
+            var signin = new Date(data.user.last_login_at).toDateString();
+
+            addDates(cdate, ldate, signin);
+
+        });
+
+    };
+
+//append the dates to the HTML via JavaScript DOM manipulation 
+    function addDates(cdate, ldate, signin) {
+        document.getElementById('created').innerHTML = cdate;
+        document.getElementById('updated').innerHTML = ldate;
+        document.getElementById('signedin').innerHTML = signin;
+    };
 
   </script>
 </body>
