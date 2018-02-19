@@ -1,1 +1,0 @@
-# zendesk-app-handbook
