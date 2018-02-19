@@ -5,6 +5,21 @@
   <link rel="stylesheet" href="https://assets.zendesk.com/apps/sdk-assets/css/2/zendesk_garden.css" type="text/css">
 </head>
 <body>
+  
+<!-- creates the user app interface - replaces the handlebars templates from V1 and uses standard HTML -->
+<dl>
+  <dt>Customer:</dt>
+  <dd id="name"></dd>
+
+  <dt>Created:</dt>
+  <dd id="created"></dd>
+
+  <dt>Updated:</dt>
+  <dd id="updated"></dd>
+
+  <dt>Last Signed-In:</dt>
+  <dd id="signedin"></dd>
+</dl>
 
   <!-- https://github.com/zendesk/zendesk_app_framework_sdk -->
   <script type="text/javascript" src="https://assets.zendesk.com/apps/sdk/2.0/zaf_sdk.js"></script>
