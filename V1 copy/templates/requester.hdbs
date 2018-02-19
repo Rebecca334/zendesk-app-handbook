@@ -1,0 +1,20 @@
+    <table>
+    <tr>
+      <td>Customer:</td>
+      <td class="data">{{name}}</td>
+    </tr>
+    {{#if tags}}
+    <tr>
+      <td>Tags:</td>
+      <td class="data">{{#each tags}}{{this}} {{/each}}</td>
+    </tr>
+    {{/if}}
+    <tr>
+      <td>Added:</td>
+      <td class="data">{{created_at}}</td>
+    </tr>
+    <tr>
+      <td>Last signed in:</td>
+      <td class="data">{{last_login_at}}</td>
+    </tr>
+    </table>
