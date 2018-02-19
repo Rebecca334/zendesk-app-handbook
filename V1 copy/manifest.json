@@ -1,5 +1,5 @@
 {
-  "name": "Requester X-Ray V1",
+  "name": "Requester X-Ray",
   "author": {
     "name": "Becca",
     "email": "rschmidt@zendesk.com",
@@ -7,7 +7,11 @@
   },
   "defaultLocale": "en",
   "private": true,
-  "location":  ["ticket_sidebar"],
+  "location": {
+    "support": {
+      "ticket_sidebar": "assets/iframe.html"
+    }
+  },
   "version": "1.0",
-  "frameworkVersion": "1.0"
+  "frameworkVersion": "2.0"
 }
